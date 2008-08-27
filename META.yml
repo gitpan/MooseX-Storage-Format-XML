@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                MooseX-Storage-Format-XML
-version:             0.01
+version:             0.02
 abstract:            An XML serialization role
 license:             ~
 author:              
@@ -8,7 +8,9 @@ author:
 generated_by:        ExtUtils::MakeMaker version 6.44
 distribution_type:   module
 requires:     
+    Moose::Role:                   0
     Test::More:                    0
+    XML::Simple:                   0
 meta-spec:
     url:     http://module-build.sourceforge.net/META-spec-v1.3.html
     version: 1.3

@@ -15,47 +15,51 @@ MooseX::Storage::Format::XML - An XML serialization role
 
 =head1 VERSION
 
-Version 0.01
+Version 0.02
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 our $AUTHORITY = 'cpan:STEVAN';
 
 =head1 SYNOPSIS
 
-	package Point;
-	use Moose;
-	use MooseX::Storage;
+    package Point;
+    use Moose;
+    use MooseX::Storage;
 
-	with Storage('format' => 'XML');
+    with Storage('format' => 'XML');
 
-	has 'x' => (is => 'rw', isa => 'Int');
-	has 'y' => (is => 'rw', isa => 'Int');
+    has 'x' => (is => 'rw', isa => 'Int');
+    has 'y' => (is => 'rw', isa => 'Int');
 
-	1;
+    1;
 
-	my $p = Point->new(x => 10, y => 10);
+    my $p = Point->new(x => 10, y => 10);
 
-	## methods to freeze/thaw into 
-	## a specified serialization format
-	## (in this case XML)
+    ## methods to freeze/thaw into 
+    ## a specified serialization format
+    ## (in this case XML)
 
-	# pack the class into a XML string
-	$p->freeze(); 
+    # pack the class into a XML string
+    $p->freeze(); 
 
-	# ----
-	# __CLASS__: "Point" 
-	# x: 10
-	# y: 10  
+    # <opt>
+    #   <__CLASS__>Point</__CLASS__> 
+    #   <x>10</x>
+    #   <y>10</y>
+    # </opt>  
 
-	# unpack the JSON string into a class
-	my $p2 = Point->thaw(<<XML);  
-	----
-	__CLASS__: "Point" 
-	x: 10
-	y: 10
-	XML
+    # unpack the XML string into a class
+    my $p2 = Point->thaw(<<XML);  
+    <opt>
+      <__CLASS__>Point</__CLASS__>
+      <x>10</x>
+      <y>10</y>
+    </opt>
+    XML
+
+This module is obsoleted by C<MooseX::Storage::Format::XML::Simple>.
 
 =head1 METHODS
 
